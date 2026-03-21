@@ -11,7 +11,7 @@
 | [Neovim](https://neovim.io/) ≥ 0.10 | `brew install neovim` | 编辑器本体 |
 | [Kitty](https://sw.kovidgoyal.net/kitty/) | `brew install --cask kitty` | 终端，支持图片渲染协议 |
 | [Git](https://git-scm.com/) | `brew install git` | 插件管理、LazyGit 等 |
-| [ripgrep](https://github.com/BurntSushi/ripgrep) | `brew install ripgrep` | 全局文本搜索 (`<leader>fg`) |
+| [ripgrep](https://github.com/BurntSushi/ripgrep) | `brew install ripgrep` | 全局文本搜索 (`<leader>/` 或 `<leader>sg`) |
 | [fd](https://github.com/sharkdp/fd) | `brew install fd` | 文件查找 (`<leader>ff`) |
 | [lazygit](https://github.com/jesseduffield/lazygit) | `brew install lazygit` | Git TUI (`<leader>gg`) |
 | [ImageMagick](https://imagemagick.org/) | `brew install imagemagick` | LeetCode 题目图片渲染 |

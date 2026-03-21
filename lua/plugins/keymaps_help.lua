@@ -19,7 +19,8 @@ local sections = {
     title = " 文件与搜索",
     items = {
       { "<leader>ff", "查找文件" },
-      { "<leader>fg", "全局搜索文本" },
+      { "<leader>/",  "全局搜索文本(Grep)" },
+      { "<leader>sg", "全局搜索文本(Grep)" },
       { "<leader>fr", "最近打开的文件" },
       { "<leader>fb", "切换 Buffer" },
       { "<leader>e",  "文件浏览器" },
