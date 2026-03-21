@@ -177,20 +177,20 @@ local function show_help(cols)
   local ns = vim.api.nvim_create_namespace("keymaps_help")
   for i, line in ipairs(lines) do
     if line:match("⌨") then
-      vim.api.nvim_buf_add_highlight(buf, ns, "Title", i - 1, 0, -1)
+      vim.api.nvim_buf_set_extmark(buf, ns, i - 1, 0, { end_col = #line, hl_group = "Title" })
     else
       -- 高亮分类标题
       local pos = 1
       while true do
         local s, e = line:find("── .-%s──", pos)
         if not s then break end
-        vim.api.nvim_buf_add_highlight(buf, ns, "Function", i - 1, s - 1, e)
+        vim.api.nvim_buf_set_extmark(buf, ns, i - 1, s - 1, { end_col = e, hl_group = "Function" })
         pos = e + 1
       end
       -- 高亮快捷键（每个 cell 中缩进后的键名部分）
       for s, key_text in line:gmatch("()  (%-?%S+)%s%s") do
         if not key_text:match("──") then
-          vim.api.nvim_buf_add_highlight(buf, ns, "Keyword", i - 1, s, s + #key_text + 1)
+          vim.api.nvim_buf_set_extmark(buf, ns, i - 1, s, { end_col = s + #key_text + 1, hl_group = "Keyword" })
         end
       end
     end
