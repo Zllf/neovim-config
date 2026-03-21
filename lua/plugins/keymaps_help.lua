@@ -65,6 +65,21 @@ local sections = {
     },
   },
   {
+    title = " 调试 (DAP / GoLand 风格)",
+    items = {
+      { "Cmd+F8",       "打/取消断点" },
+      { "Cmd+Shift+F8", "条件断点" },
+      { "F9",           "开始/继续调试" },
+      { "F8",           "Step Over（跳过）" },
+      { "F7",           "Step Into（进入）" },
+      { "Shift+F8",     "Step Out（跳出）" },
+      { "Option+F9",    "运行到光标处" },
+      { "Option+F8",    "求值表达式" },
+      { "<leader>du",   "切换调试 UI" },
+      { "<leader>dt",   "终止调试" },
+    },
+  },
+  {
     title = " 终端",
     items = {
       { "<leader>ft", "打开浮动终端" },
