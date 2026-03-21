@@ -15,11 +15,6 @@ return {
       lang = "go",
       cn = {
         enabled = true,
-        translator = true,
-        translate_problems = true,
-      },
-      plugins = {
-        non_standalone = true,
       },
     },
   },
