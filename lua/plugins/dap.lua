@@ -3,22 +3,14 @@
 -- 仅调试会话中：F7/F8/Shift-F8/Alt-F8/Alt-F9
 
 return {
-  -- 全局快捷键：启动调试 + 断点操作
   {
     "mfussenegger/nvim-dap",
     keys = {
-      { "<F9>",   function() require("dap").continue() end,                                                desc = "DAP: 继续/开始调试" },
-      { "<D-F8>", function() require("dap").toggle_breakpoint() end,                                       desc = "DAP: 打/取消断点" },
+      { "<F9>",     function() require("dap").continue() end,                                              desc = "DAP: 继续/开始调试" },
+      { "<D-F8>",   function() require("dap").toggle_breakpoint() end,                                     desc = "DAP: 打/取消断点" },
       { "<D-S-F8>", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,  desc = "DAP: 条件断点" },
     },
-  },
-
-  -- 会话内快捷键通过 dap-go 的 config 注入 listener
-  {
-    "leoluz/nvim-dap-go",
-    config = function(_, opts)
-      require("dap-go").setup(opts)
-
+    config = function()
       local dap = require("dap")
 
       local session_keys = {
@@ -44,5 +36,12 @@ return {
       dap.listeners.before.event_terminated["goland_keymaps"] = remove_keymaps
       dap.listeners.before.event_exited["goland_keymaps"] = remove_keymaps
     end,
+  },
+
+  -- Go 调试适配器
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+    opts = {},
   },
 }
