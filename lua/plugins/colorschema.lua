@@ -5,6 +5,7 @@ return {
     lazy = true,
     name = "catppuccin",
     opts = {
+      flavour = "mocha",
       lsp_styles = {
         underlines = {
           errors = { "undercurl" },
@@ -50,6 +51,13 @@ return {
           end
         end,
       },
+    },
+  },
+  -- 设置 LazyVim 使用 catppuccin
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
     },
   },
 }
