@@ -4,3 +4,6 @@
 
 -- Apple Silicon: 让 magick 能找到 ImageMagick 动态库
 vim.env.DYLD_LIBRARY_PATH = "/opt/homebrew/lib:" .. (vim.env.DYLD_LIBRARY_PATH or "")
+
+-- 窗口分割线
+vim.opt.fillchars:append({ vert = "│", horiz = "─", verthoriz = "┼", horizup = "┴", horizdown = "┬", vertleft = "┤", vertright = "├" })

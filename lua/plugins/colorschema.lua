@@ -64,12 +64,31 @@ return {
       -- colorscheme 加载后强制所有 Snacks 窗口透明
       vim.api.nvim_create_autocmd("ColorScheme", {
         callback = function()
-          vim.api.nvim_set_hl(0, "SnacksNormal", { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "SnacksNormalNC", { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "SnacksPickerInput", { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "SnacksPickerList", { bg = "NONE" })
-          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+          local transparent = { bg = "NONE" }
+          local groups = {
+            "NormalFloat",
+            "FloatBorder",
+            "FloatTitle",
+            "SnacksNormal",
+            "SnacksNormalNC",
+            "SnacksPicker",
+            "SnacksPickerInput",
+            "SnacksPickerList",
+            "SnacksPickerPreview",
+            "SnacksPickerBorder",
+            "LazyNormal",
+            "MasonNormal",
+            "NoicePopup",
+            "NoicePopupmenu",
+            "NotifyBackground",
+            "WhichKeyFloat",
+            "Pmenu",
+          }
+          for _, group in ipairs(groups) do
+            vim.api.nvim_set_hl(0, group, transparent)
+          end
+          -- 窗口分割线颜色
+          vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#585b70", bg = "NONE" })
         end,
       })
     end,
