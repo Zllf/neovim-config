@@ -6,6 +6,7 @@ return {
     name = "catppuccin",
     opts = {
       flavour = "mocha",
+      transparent_background = true,
       lsp_styles = {
         underlines = {
           errors = { "undercurl" },
@@ -59,5 +60,18 @@ return {
     opts = {
       colorscheme = "catppuccin",
     },
+    init = function()
+      -- colorscheme 加载后强制所有 Snacks 窗口透明
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        callback = function()
+          vim.api.nvim_set_hl(0, "SnacksNormal", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "SnacksNormalNC", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "SnacksPicker", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "SnacksPickerInput", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "SnacksPickerList", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+        end,
+      })
+    end,
   },
 }
