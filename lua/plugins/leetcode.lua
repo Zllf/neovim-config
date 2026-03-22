@@ -16,6 +16,9 @@ return {
       cn = {
         enabled = true,
       },
+      editor = {
+        reset_previous_code = false,
+      },
       console = {
         size = {
           width = "75%",
