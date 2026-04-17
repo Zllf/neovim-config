@@ -7,7 +7,13 @@ return {
       },
       picker = {
         sources = {
+          files = {
+            hidden = true,
+            ignored = true, -- 显示 gitignored 文件
+          },
           explorer = {
+            hidden = true,
+            ignored = true, -- 目录树中显示 gitignored 文件
             layout = {
               preset = "sidebar",
               layout = {
