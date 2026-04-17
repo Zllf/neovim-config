@@ -13,6 +13,18 @@ return {
     config = function()
       local dap = require("dap")
 
+      -- 断点高亮：高对比度红色圆点 + 黄色条件断点 + 绿色当前行
+      vim.api.nvim_set_hl(0, "DapBreakpoint",          { fg = "#ff3030", bold = true })
+      vim.api.nvim_set_hl(0, "DapBreakpointCondition",  { fg = "#ffd700", bold = true })
+      vim.api.nvim_set_hl(0, "DapLogPoint",             { fg = "#61afef", bold = true })
+      vim.api.nvim_set_hl(0, "DapStopped",              { fg = "#00ff00", bg = "#2e3b2e", bold = true })
+
+      vim.fn.sign_define("DapBreakpoint",          { text = "●", texthl = "DapBreakpoint" })
+      vim.fn.sign_define("DapBreakpointCondition",  { text = "◆", texthl = "DapBreakpointCondition" })
+      vim.fn.sign_define("DapLogPoint",             { text = "◆", texthl = "DapLogPoint" })
+      vim.fn.sign_define("DapStopped",              { text = "▶", texthl = "DapStopped", linehl = "DapStopped" })
+      vim.fn.sign_define("DapBreakpointRejected",   { text = "○", texthl = "DapBreakpoint" })
+
       local session_keys = {
         { "n",          "<F8>",   function() dap.step_over() end,           "DAP: Step Over" },
         { "n",          "<F7>",   function() dap.step_into() end,           "DAP: Step Into" },
